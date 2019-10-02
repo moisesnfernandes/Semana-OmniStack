@@ -1,18 +1,16 @@
 const mongoose = require('mongoose');
 
 const BookingSchema = new mongoose.Schema({
-    date : String,
-    approved: Boolean,
+  date: String,
+  aproved: Boolean,
+  user: {
+    type: mongoose.Schema.Types.ObjectId,
+    ref: 'User',
+  },
+  spot: {
+    type: mongoose.Schema.Types.ObjectId,
+    ref: 'Spot',
+  }
+})
 
-    user:{
-        type: mongoose.Schema.Types.ObjectId,
-        ref : 'User'
-    },
-    Spot:{
-        type: mongoose.Schema.Types.ObjectId,
-        ref : 'Spot'
-    }
-
-});
-
-module.exports = mongoose.model('spot', BookingSchema);
+module.exports = mongoose.model('Booking', BookingSchema);
